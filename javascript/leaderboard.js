@@ -11,7 +11,7 @@ function renderLeaderboard(players) {
     container.innerHTML = "";
 
     players
-        .sort((a, b) => a.rank - b.rank)
+        .sort((a, b) => b.wins - a.wins || (a.rank ?? Number.POSITIVE_INFINITY) - (b.rank ?? Number.POSITIVE_INFINITY))
         .forEach(player => {
             const row = document.createElement("div");
             row.className = "leaderboard-row";
